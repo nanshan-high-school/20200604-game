@@ -1,0 +1,76 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+	srand(time(NULL));
+	
+	vector<int> x;
+
+	int a, b;
+
+	bool check;
+	int num;
+
+	for (int i = 0; i < 4; i++) {
+		if (i == 0) {
+			x.push_back((rand() % 10));
+		} else {
+			do {
+				num = (rand() % 10);
+
+				check = true;
+
+				for (int j = 0; j < i; j++) {
+					if (num == x[j]) {
+						check = false;
+					}
+				}
+			} while (check == false);
+
+			x.push_back(num);
+		}
+	}
+
+	string input;
+	vector<int> ans;
+
+	do {
+		a = 0;
+		b = 0;
+
+		cin >> input;
+
+		for (int i = 0; i < 4; i++) {
+			ans.push_back(input[i] - '0');
+		}
+
+		for (int i = 0; i < 4; i++) {
+			if (x[i] == ans[i]) {
+				a++;
+			}
+		}
+
+		if (a == 4) {
+			cout << endl << "win";
+
+			return 0;
+		}
+
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 4; j++) {
+				if (x[j] == ans[i]) {
+					b++;
+				}
+			}
+		}
+
+		b -= a;
+
+		cout << a << "A" << b << "B" << endl;
+
+		for (int i = 0; i < 4; i++) {
+			ans.pop_back();
+		}
+	} while (a < 4);
+}
