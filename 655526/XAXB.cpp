@@ -2,16 +2,18 @@
 using namespace std;
 
 int main () {
+    int codeTemp[4], times = 1;
     char code[4];
-    cout << "½Ð¿é¤JÃD¥Ø¡G";
     for (int i = 0; i < 4; i++) {
-        cin >> code[i];
+        codeTemp[i] = rand() % 10;
+        code[i] = codeTemp[i] + '0';
     }
+    
     bool yes = 0;
     while (yes == 0) {
         char input[4];
         int a = 0, b = 0;
-        cout << "½Ð¿é¤J±ý²q´úªº¼Æ¦r¡G";
+        cout << "è«‹è¼¸å…¥æ¬²çŒœæ¸¬çš„æ•¸å­—ï¼š";
         for (int i = 0; i < 4; i++) {
             cin >> input[i];
         }
@@ -29,10 +31,11 @@ int main () {
         }
         if (a == 4) {
             yes = 1;
-            cout << "§A²q¨ì£{µ¹§A¤@­ÓÆgowob";
+            cout << "ä½ çŒœåˆ°ã„Œçµ¦ä½ ä¸€å€‹è®šowob\nä½ ä¸€å…±ç”¨ã„Œ" << times << "æ¬¡çŒœåˆ°ç­”æ¡ˆ";
         }
         else {
             cout << a << "A" << b << "B" << endl;
+            times++;
         }
     }
 }
