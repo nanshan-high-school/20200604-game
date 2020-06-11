@@ -1,30 +1,27 @@
 #include <iostream>
+#include <ctime>
 using namespace std;
 
 int main () {
-    int code, min, max;
-    cout << "½Ð¿é¤J±K½X¡G";
-    cin >> code;
-    cout << "½Ð¿é¤J½d³ò³Ì¤p­È¡G";
-    cin >> min;
-    cout << "½Ð¿é¤J½d³ò³Ì¤j­È¡G";
-    cin >> max;
+    int code = rand() % 100, min = 0, max = 99, times = 1;
 
     bool yes = 0;
     while (yes == 0) {
         int input;
         cout << min << " ~ " << max << endl;
-        cout << "½Ð¿é¤J±ý²q´úªº¼Æ¦r¡G";
+        cout << "è«‹è¼¸å…¥æ¬²çŒœæ¸¬çš„æ•¸å­—ï¼š";
         cin >> input;
         if (input == code) {
             yes = 1;
-            cout << "§A²q¨ì£{µ¹§A¤@­ÓÆgowob";
+            cout << "ä½ çŒœåˆ°ã„Œçµ¦ä½ ä¸€å€‹è®šowob\nä½ ä¸€å…±èŠ±ã„Œ" << times << "æ¬¡çŒœåˆ°æ­£ç¢ºç­”æ¡ˆ";
         }
         else if (input < code) {
             min = input;
+            times++;
         }
         else {
             max = input;
+            times++;
         }
     }
 }
